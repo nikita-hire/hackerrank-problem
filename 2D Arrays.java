@@ -9,23 +9,28 @@ public class Solution {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int arr[][] = new int[6][6];
-        for(int i=0; i < 6; i++){
-            for(int j=0; j < 6; j++){
+        for(int i=0; i < 6; i++){//row
+            for(int j=0; j < 6; j++){//column
                 arr[i][j] = in.nextInt();
             }
         }
         
-        int sum[] = new int[16];
-    int h = 0;
+    int maxSum= Integer.MIN_VALUE;
     for (int i = 0; i < 4; i++) {
         for (int j = 0; j < 4; j++) {
-            sum[h] = arr[i][j] + arr[i][j+1] + arr[i][j+2]
-                    + arr[i+1][j+1] + arr[i+2][j] + arr[i+2][j+1]
-                    + arr[i+2][j+2];
-            h++;
+            sum[h] = arr[i][j] + arr[i][j+1] + arr[i][j+2]                                 /* 2 4 4
+                                                                                                2 
+                                                                                              1 2 4 = 19 */
+                       + arr[i+1][j+1] + 
+                
+                
+                arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2];
+            if(maxSum<sum)
+            {
+                maxSum=sum;
+            }
         }
     }
-    Arrays.sort(sum);
-    System.out.println(sum[15]);
+    System.out.println(maxSum);
     }
 }
